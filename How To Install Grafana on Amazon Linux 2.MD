@@ -44,6 +44,14 @@ username = admin password = admin
 sudo firewall-cmd --add-port=3000/tcp --permanent
 sudo firewall-cmd --reload
 ```
+## After accessing
+```
+settings > data sourse > add data source > Prometheus > give anyname and paste currect url of prometheus (ip:9090)
+```
+```
+go to + > add new panel and create dashboard using it or import dashboard after click on +
+```
+
 
 
 
