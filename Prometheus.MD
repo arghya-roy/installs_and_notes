@@ -11,6 +11,11 @@ cd prometheus-*
 ``` 
 ./prometheus --config.file=prometheus.yml
 ```
+If it showing that this port is already in use
+ ```
+ lsof -i :9090
+ sudo kill -9 <pid-it will be shown after running previous command>
+ ```
 ```
 <publicip>:<9090>
 ```
