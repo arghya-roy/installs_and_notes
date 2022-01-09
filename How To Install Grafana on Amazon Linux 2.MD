@@ -34,7 +34,10 @@ systemctl status grafana-server.service
 
 ```
 <punlic-ip><3000>
-#username = admin password = admin
+```
+# login details
+```
+username = admin password = admin
 ```
 ## If you cant access
 ```
