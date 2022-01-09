@@ -12,7 +12,7 @@
  ./prometheus --config.file=prometheus.yml
  ```
  ```
- <publicip>:<9090>
+ <p ublicip>:<9090>
  ```
  
  
