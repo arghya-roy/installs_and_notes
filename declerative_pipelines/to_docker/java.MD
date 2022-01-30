@@ -1,3 +1,4 @@
+THIS CODE IS NOT TESTED BUT ACCORDING TO MY KNOWLEDGE IT IS CORRECT.
 ```
 pipeline {
     agent any
@@ -41,7 +42,7 @@ pipeline {
         }
         stage('run container in remote machine') {            
             steps {    
-                sshagent(['tomcat4']) {
+                sshagent(['tomcat4']) {    // if this job located in any folder in jenkins then it is a good practice create credential inside that folder
                 sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.2.1 ./name1.sh"
                 sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.2.1 ./name2.sh"
                 sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.2.1 docker run -d -p 8080:8080 --name my-app arghyaroy123/name1:latest"
@@ -50,4 +51,34 @@ pipeline {
         }
     }
 }
+```
+Dockerfile
+```
+# Pull base image 
+From tomcat:8-jre8 
+
+# Maintainer 
+MAINTAINER "valaxytech@gmail.com" 
+COPY webapp/target/*.war /usr/local/tomcat/webapps
+```
+name1.sh
+```
+#!/bin/bash
+app="my-app"
+if docker ps -a | grep "my-app";
+then
+docker stop "$app" && docker rm -f "$app"
+else 
+    echo "no container"
+fi
+```
+name2.sh
+```
+#!/bin/bash
+if  sudo docker images | grep "arghyaroy123/name1";
+ then
+docker image rm -f arghyaroy123/node1:latest
+ else
+ echo "no image"
+fi
 ```
