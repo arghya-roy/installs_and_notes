@@ -22,9 +22,9 @@ pipeline {
         stage('deploy') {
             steps {
                 sshagent(['node3']) {
-                sh 'scp -r * ec2-user@172.31.13.106:/home/ec2-user/'
-                sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.13.106 sudo systemctl stop index"
-                sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.13.106 sudo systemctl start index"
+                sh 'scp -r * ec2-user@pvtip:/home/ec2-user/'  // node_modules is a folder so we have to copy recursively and * means all
+                sh "ssh -o StrictHostKeyChecking=no ec2-user@pvtip sudo systemctl stop index"
+                sh "ssh -o StrictHostKeyChecking=no ec2-user@pvtip sudo systemctl start index"
                 
 }
             }
