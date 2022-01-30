@@ -1,0 +1,3 @@
+
+permission_to_script_in_local_server_using_pipeline
+
