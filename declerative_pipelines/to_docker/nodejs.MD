@@ -54,3 +54,37 @@ pipeline {
     }
 }
 ```
+the dockerfile
+```
+FROM node:10-alpine
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+CMD [ "node", "index.js" ]
+```
+name1.sh
+```
+#!/bin/bash
+app="my-app"
+if docker ps -a | grep "my-app";
+then
+docker stop "$app" && docker rm -f "$app"
+else 
+    echo "no container"
+fi
+```
+name2.sh
+```
+#!/bin/bash
+if  sudo docker images | grep "arghyaroy123/node1";
+ then
+docker image rm -f arghyaroy123/node1:latest
+ else
+ echo "no image"
+fi
+```
