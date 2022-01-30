@@ -26,8 +26,10 @@ pipeline {
         }
          stage('docker login') {
             steps {
-                sh "docker login -u arghyaroy123 -p arghyaroy123"
+                withCredentials([string(credentialsId: 'dockerpasswd', variable: 'dockerhubpassword')]) {  // create a secret text with variable name dockerhubpassword
+                sh "docker login -u arghyaroy123 -p ${dockerhubpassword}"
                  }
+            }
             }
         stage('push docker image') {
             steps {
