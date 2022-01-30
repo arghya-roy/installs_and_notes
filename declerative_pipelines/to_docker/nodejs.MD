@@ -29,7 +29,7 @@ pipeline {
          stage('docker login') {
             steps {
                 withCredentials([string(credentialsId: 'doc1', variable: 'doc1')]) {  // create a secret text with variable name dockerhubpassword
-                sh "docker login -u arghyaroy123 -p ${doc1}"
+                sh "docker login -u arghyaroy123 -p ${doc1}"     // if this job located in any folder in jenkins then it is a good practice create credential inside that folder                                                                          
                  }
             }
             }
