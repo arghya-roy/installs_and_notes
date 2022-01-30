@@ -7,3 +7,17 @@
             }
  ```
 but before that you have to do some congfiguration in jenkins server-
+```
+visudo
+```
+```
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+jenkins ALL=(ALL:ALL) ALL
+
+```
+at the end of visudo file paste this 
+```
+jenkins ALL=(ALL) NOPASSWD: ALL
+
+```
