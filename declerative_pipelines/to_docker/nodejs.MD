@@ -43,7 +43,7 @@ pipeline {
         }
         stage('run container in remote machine') {            
             steps {    
-                sshagent(['node3'])  {
+                sshagent(['node3'])  {  // if this job located in any folder in jenkins then it is a good practice create credential inside that folder
                 sh "scp -o StrictHostKeyChecking=no *.sh ec2-user@172.31.13.106:."
                 sh 'ssh -o StrictHostKeyChecking=no ec2-user@172.31.13.106 ./name1.sh' // if my-app container running then it stop this and delete this
                 sh "ssh -o StrictHostKeyChecking=no ec2-user@172.31.13.106 ./name2.sh" // it delete my-app container if available
