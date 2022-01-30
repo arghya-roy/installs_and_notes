@@ -18,7 +18,7 @@ pipeline {
         }
         stage('build docker image') {
             steps {
-                sh 'docker build -t arghyaroy123/node1:2.0 .'
+                sh 'docker build -t arghyaroy123/node1:v1.$BUILD_ID .'
                 sh 'docker build -t arghyaroy123/node1:latest .'
                 // sh 'sudo -S chmod 777 name.sh'
                 
@@ -31,8 +31,10 @@ pipeline {
             }
         stage('push docker image') {
             steps {
-                sh 'docker push arghyaroy123/node1:2.0'
+                sh 'docker push arghyaroy123/node1:v1.$BUILD_ID'
                 sh 'docker push arghyaroy123/node1:latest'
+                sh 'docker image rmi arghyaroy123/node1:$BUILD_ID'
+                sh 'docker image rmi arghyaroy123/node1:latest'
             }
         }
         stage('run container in remote machine') {            
