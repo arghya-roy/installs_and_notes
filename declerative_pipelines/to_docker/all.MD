@@ -106,6 +106,24 @@ pipeline {
    }
 }
 ```
+### EXAMPLE 4 -
+```
+pipeline {
+   agent any
+   environment {
+       arghya = 'suvo'                               //can be used in whole pipeline
+   }
+   stages {
+       stage(“Build”) {
+           steps {
+           withEnv(["arghya=suvo"]) {
+                    echo "arghya = ${env.arghya}"
+                }
+       }
+   }
+}
+}
+```
 ### CHANGING VARIABLE VALUE -
 ```
 pipeline {
@@ -123,5 +141,38 @@ pipeline {
            }
        }
    }
+}
+```
+## SCRIPT INSIDE STEP -
+```
+pipeline {
+    agent any
+
+    environment {
+        FOO = "bar"
+    }
+
+    stages {
+        stage("Env Variables") {
+            environment {
+                NAME = "Alan"
+            }
+
+            steps {
+                echo "FOO = ${env.FOO}"
+                echo "NAME = ${env.NAME}"
+
+                script {
+                    env.TEST_VARIABLE = "some test value"
+                }
+
+                echo "TEST_VARIABLE = ${env.TEST_VARIABLE}"
+
+                withEnv(["ANOTHER_ENV_VAR=here is some value"]) {
+                    echo "ANOTHER_ENV_VAR = ${env.ANOTHER_ENV_VAR}"
+                }
+            }
+        }
+    }
 }
 ```
