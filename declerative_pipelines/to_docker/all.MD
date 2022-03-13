@@ -37,3 +37,36 @@ pipeline {
 ```
 ## SET ENVIRONMENT VARIABLES -
 ### EXAMPLES - 
+```
+pipeline {
+    agent any
+environment {
+       arghya = 'suvo'                               //can be used in whole pipeline
+   }
+    stages {
+        stage('test') {
+            steps {
+                sh 'echo hello'
+            }
+        }
+        stage('test1') {
+            steps {
+                sh 'echo $TEST'
+            }
+        }
+        stage('test3') {
+            steps {
+                script {
+                    if (env.arghya == 'suvo') 
+                        {
+                        echo 'Hello from suvo'
+                        }
+                    else {
+                        sh "echo 'Hello from non suvo!'"
+                        }
+                }
+            }
+        }
+    }
+}
+```
