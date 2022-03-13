@@ -299,3 +299,37 @@ pipeline {
 }
 }
 ```
+##  TRY - CATCH BLOCK - 
+This is a process of error handling. It helps us to execute other code after one code fails. Suppose content of try block fails then the error will
+be catched by catch block, and after that catch block executes another codes. We can also use finally block (optional) with try catch. Finally block
+executes independent of try or catch. Finally block must be executed either try block succesful or not.
+We can use 
+- try-catch
+- try-catch-finally
+- try-finally
+```
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello2') {
+           
+            steps {
+                 script {
+                        try {
+                        sh 'docker ps'
+                             } 
+                        catch (Exception exp) {
+                        sh 'echo "Handle the exception!"'
+                                               }
+                        finally {
+                            sh 'echo "try-catch block sucessful"'
+                        }
+                        
+                          }
+                  echo 'Hello World'
+            }
+        }
+    }
+}
+```
