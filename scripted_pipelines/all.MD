@@ -6,7 +6,7 @@ Declarative Pipeline supports an environment directive, whereas users of Scripte
 node {
     stage('Preparation') { 
         withEnv(["BUILD_NUMBER=100"]) {
-                    echo "BUILD_NUMBER = ${env.BUILD_NUMBER}" // prints "BUILD_NUMBER = 1"
+                    echo "BUILD_NUMBER = ${env.BUILD_NUMBER}" 
                 }
     }
 }
