@@ -1,5 +1,5 @@
-### IF - ELSE STATEMENT -
-#### Example 1 -
+## IF - ELSE STATEMENT -
+### Example 1 -
 ```
 pipeline {
     agent any
@@ -35,3 +35,5 @@ pipeline {
     }
 }
 ```
+## SET ENVIRONMENT VARIABLES -
+### EXAMPLES - 
