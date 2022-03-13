@@ -86,3 +86,23 @@ pipeline {
    }
 }
 ```
+### EXAMPLE 3 -
+```
+pipeline {
+   agent any
+   environment {
+       name = 'arghya'
+   }
+   stages {
+       stage(“Build”) {
+           environment {
+                   surname = ‘roy’                                 //can be used in this stage only
+              }
+           steps {
+               echo env.name
+               echo env.surname
+           }
+       }
+   }
+}
+```
