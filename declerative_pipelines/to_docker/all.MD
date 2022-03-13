@@ -193,6 +193,51 @@ pipeline {
     }
 }
 ```
+### Storing Boolean values in environment variables
+```
+pipeline {
+    agent any
+
+    environment {
+        IS_BOOLEAN = false
+    }
+
+    stages {
+        stage("Env Variables") {
+            steps {
+                script {
+                    if (env.IS_BOOLEAN) {
+                        echo "You can see this message, because \"false\" String evaluates to Boolean.TRUE value"
+                    }
+
+                    if (env.IS_BOOLEAN.toBoolean() == false) {
+                        echo "You can see this message, because \"false\".toBoolean() returns Boolean.FALSE value"
+                    }
+                }
+            }
+        }
+    }
+}
+```
+### Capturing sh command output in the env variable -
+You can also capture output of a shell command as an environment variable. Keep in mind that you need to use sh(script: 'cmd', returnStdout:true) format to force sh step[2] to return an output so it can be captured and stored in a variable. Also, if you want to avoid capturing the new line character that is usually present in the shell command output, call trim() method to remove all whitespace from the beginning and the end of the captured output.
+```
+pipeline {
+    agent any
+
+    environment {
+        LS = "${sh(script:'ls -lah', returnStdout: true).trim()}"
+    }
+
+    stages {
+        stage("Env Variables") {
+            steps {
+                echo "LS = ${env.LS}"
+            }
+        }
+    }
+}
+```
 ## SCRIPT INSIDE STEP -
 ```
 pipeline {
