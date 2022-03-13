@@ -106,3 +106,22 @@ pipeline {
    }
 }
 ```
+### CHANGING VARIABLE VALUE -
+```
+pipeline {
+   agent any
+   environment {
+       arghya = 'suvo'                               //can be used in whole pipeline
+   }
+   stages {
+       stage(“Build”) {
+           steps {
+           script {
+               env.arghya = 'name'
+               echo 'hello ' + env.arghya + ' roy'
+           }
+           }
+       }
+   }
+}
+```
