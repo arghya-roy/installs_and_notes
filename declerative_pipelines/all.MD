@@ -271,3 +271,31 @@ pipeline {
     }
 }
 ```
+## PARALLEL JOBS -
+```
+pipeline {
+    agent any
+    stages {
+        stage ('parallel works')
+        {
+            parallel {
+        stage('test') {
+            steps {
+                sh 'echo test'
+            }
+        }
+        stage('test1') {
+            steps {
+                sh 'echo test1'
+            }
+        }
+        stage('test2') {
+            steps {
+                sh 'echo test2'
+            }
+        }
+    }
+  }
+}
+}
+```
