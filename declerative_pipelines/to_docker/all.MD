@@ -36,7 +36,7 @@ pipeline {
 }
 ```
 ## SET ENVIRONMENT VARIABLES -
-### EXAMPLES - 
+### EXAMPLE 1 - 
 ```
 pipeline {
     agent any
@@ -68,5 +68,21 @@ environment {
             }
         }
     }
+}
+```
+### EXAMPLE 2 -
+```
+pipeline {
+   agent any
+   environment {
+       arghya = 'suvo'                               //can be used in whole pipeline
+   }
+   stages {
+       stage(“Build”) {
+           steps {
+               echo 'hello ' + env.arghya + ' roy'
+           }
+       }
+   }
 }
 ```
