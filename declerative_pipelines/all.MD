@@ -466,3 +466,31 @@ pipeline {
 }
 ```
 https://devopscube.com/declarative-pipeline-parameters/
+## CONDITION WITH ENVIRONMENT VARIABLE - 
+```
+pipeline {
+    agent any
+    environment {
+        ENV = "testing"
+        ENV1 = "arghya"
+    }
+    stages {
+        stage("Test") {
+            when {
+                environment(name: "ENV", value: "testing")
+            }
+            steps {
+                echo "Test stage."
+            }
+        }
+        stage("Test2") {
+            when {
+                environment(name: "ENV1", value: "arghya")
+            }
+            steps {
+                echo "Test stage."
+            }
+        }
+    }
+}
+```
