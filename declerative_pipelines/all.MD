@@ -333,3 +333,32 @@ pipeline {
     }
 }
 ```
+## PARAMETER -
+```
+pipeline {
+    agent any
+    stages {
+            stage('Setup parameters1') {
+            steps {
+                script { 
+properties([parameters([booleanParam(defaultValue: true, description: 'description', name: 'boolean1'), choice(choices: ['one', 'two', 'three'], description: 'description', name: 'choice1')])])                }
+            }
+            }
+    stage('Deploy to Production') {
+            when {
+                expression { 
+                   return params.choice1 == 'two'
+                }
+            }
+            steps {
+                    sh """
+                    echo "deploy to production"
+                    """
+                }
+            }
+            
+            
+   }
+            }
+
+```
