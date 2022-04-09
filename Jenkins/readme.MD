@@ -130,3 +130,11 @@ Step 4 : Manage Jenkins - Configure Global Security - Authorisation - Role Based
 Step 5 : Create Roles and Assign roles to users
 
 Step 6 : Validate authorization and authentication are working properly
+
+## Basic Configurations
+========================================
+
+Step 1 : Goto Manage Jenkins - Configure System
+
+Step 2 : Get a basic understanding of common/basic configurations
+
