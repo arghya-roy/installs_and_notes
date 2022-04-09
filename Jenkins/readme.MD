@@ -96,3 +96,13 @@ OR
 3. Press option/alt - right click finder - relaunch
 
 ====================================================== .
+## How to use Jenkins from command line
+Step 1 : start Jenkins
+
+Step 2 : goto Manage Jenkins - Configure Global Security - enable security
+
+Step 3 : goto - http://localhost:8080/cli/
+
+Step 4 : download jerkins-cli jar. Place at any location.
+
+Step 5 : test the jenkins command line is working
