@@ -99,10 +99,34 @@ OR
 ## How to use Jenkins from command line
 Step 1 : start Jenkins
 
-Step 2 : goto Manage Jenkins - Configure Global Security - enable security
+Step 2 : goto Manage Jenkins - Configure Global Security - enable security && authorization -anyone can do anything
 
 Step 3 : goto - http://localhost:8080/cli/
 
 Step 4 : download jerkins-cli jar. Place at any location.
 
 Step 5 : test the jenkins command line is working
+ Step 6:  if it needs any passowrd then go to jenkins click on dropdown of of username, select configure, pass ssh public key like - 1234
+ 
+## How to create Users + Manage + Assign Roles
+Jenkins authentication and authorization
+Today we will learn:
+———————————
+How to create New Users
+How to configure users
+How to create new roles
+How to assign users to roles
+How to Control user access on projects
+
+
+Step 1 : Create new users
+
+Step 2 : Configure users
+
+Step 3 : Create and manage user roles Roles Strategy Plugin - download - restart jenkins
+
+Step 4 : Manage Jenkins - Configure Global Security - Authorisation - Role Based Strategy
+
+Step 5 : Create Roles and Assign roles to users
+
+Step 6 : Validate authorization and authentication are working properly
