@@ -27,7 +27,7 @@
 27) permission of ~/.ssh/authorized_keys in remote should be 644
 28) permission of ~/.ssh/id_rsa.pub in local/client should be 644
 29) copy from local to remote -
-30) scp -r /c/Users/arghy/Music/* osboxes@192.168.29.134:./dir1/
-31) run command from local to remote -
-32)  ssh -o StrictHostKeyChecking=no osboxes@192.168.29.134 chmod 777 demo.sh
+31) scp -o StrictHostKeyChecking=no -r /c/Users/arghy/Music/* osboxes@192.168.29.134:./dir1/
+32) run command from local to remote -
+33) ssh -o StrictHostKeyChecking=no osboxes@192.168.29.134 chmod 777 demo.sh
 
