@@ -24,8 +24,9 @@
 24) in local -  
 25) ssh-keygen
 26) ssh-copy-id osboxes@192.168.29.134
-27) copy from local to remote -
-28) scp -r /c/Users/arghy/Music/* osboxes@192.168.29.134:./dir1/
-29) run command from local to remote -
-30)  ssh osboxes@192.168.29.134 chmod 777 demo.sh
+27) permission of ~/.ssh/authorized_keys should be 644
+28) copy from local to remote -
+29) scp -r /c/Users/arghy/Music/* osboxes@192.168.29.134:./dir1/
+30) run command from local to remote -
+31)  ssh osboxes@192.168.29.134 chmod 777 demo.sh
 
