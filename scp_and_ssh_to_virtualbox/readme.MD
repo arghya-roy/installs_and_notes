@@ -29,5 +29,5 @@
 29) copy from local to remote -
 30) scp -r /c/Users/arghy/Music/* osboxes@192.168.29.134:./dir1/
 31) run command from local to remote -
-32)  ssh osboxes@192.168.29.134 chmod 777 demo.sh
+32)  ssh -o StrictHostKeyChecking=no osboxes@192.168.29.134 chmod 777 demo.sh
 
