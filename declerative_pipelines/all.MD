@@ -215,14 +215,14 @@ pipeline {
         stage('test3') {
             steps {
                 script {
-                    if (env.roy == 'main') 
+                    if ("${roy}" == 'main') 
                         {
                         echo 'Hello from main branch'
                         }
-                   else if (env.roy == 'suvo') 
+                   else if ("${roy}" == 'suvo') 
                         {
-                        echo "Hello from $roy branch"
-                        echo "Hello from $BUILD_NUMBER branch"
+                        echo "Hello from ${roy} branch"
+                        echo "Hello from ${BUILD_NUMBER} branch"
                         }
                 }
             }
