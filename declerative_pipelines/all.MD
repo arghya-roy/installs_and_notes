@@ -192,6 +192,44 @@ pipeline {
         }
     }
 }
+
+### Variables without env.
+```
+pipeline {
+    agent any
+    environment {
+       roy = 'suvo'                               //can be used in whole pipeline
+   }
+
+    stages {
+        stage('test') {
+            steps {
+                sh 'echo hello'
+            }
+        }
+        stage('test1') {
+            steps {
+                sh 'echo $TEST'
+            }
+        }
+        stage('test3') {
+            steps {
+                script {
+                    if (env.roy == 'main') 
+                        {
+                        echo 'Hello from main branch'
+                        }
+                   else if (env.roy == 'suvo') 
+                        {
+                        echo "Hello from $roy branch"
+                        echo "Hello from $BUILD_NUMBER branch"
+                        }
+                }
+            }
+        }
+    }
+}
+```
 ```
 ### Storing Boolean values in environment variables
 ```
