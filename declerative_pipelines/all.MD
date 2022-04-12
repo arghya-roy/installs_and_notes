@@ -192,7 +192,7 @@ pipeline {
         }
     }
 }
-
+```
 ### Variables without env.
 ```
 pipeline {
@@ -230,7 +230,7 @@ pipeline {
     }
 }
 ```
-```
+
 ### Storing Boolean values in environment variables
 ```
 pipeline {
