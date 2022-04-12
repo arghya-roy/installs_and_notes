@@ -143,6 +143,25 @@ pipeline {
    }
 }
 ```
+### Change variable value without env -
+```
+pipeline {
+   agent any
+   environment {
+       arghya = 'suvo'                               //can be used in whole pipeline
+   }
+   stages {
+       stage(“Build”) {
+           steps {
+           script {
+               arghya = 'name'
+               echo "hello ${arghya} roy"
+           }
+           }
+       }
+   }
+}
+```
 ### ALL WAYS TO USE VARIABLE -
 ```
 pipeline {
