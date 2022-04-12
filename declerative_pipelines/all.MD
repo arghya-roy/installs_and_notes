@@ -249,7 +249,56 @@ pipeline {
     }
 }
 ```
+### All way to use variable without env -
+```
+pipeline {
+    agent any
 
+    environment {
+        FOO = "bar"
+        NAME = "Joe"
+    }
+
+    stages {
+        stage("Env Variables") {
+            environment {
+                NAME = "Alan" // overrides pipeline level NAME env variable
+                BUILD_NUMBER = "2" // overrides the default BUILD_NUMBER
+            }
+
+            steps {
+                echo "FOO = ${FOO}" // prints "FOO = bar"
+                echo "NAME = ${NAME}" // prints "NAME = Alan"
+                echo "BUILD_NUMBER =  ${BUILD_NUMBER}" // prints "BUILD_NUMBER = 2"
+
+                script {
+                    SOMETHING = "1" // creates env.SOMETHING variable
+                }
+            }
+        }
+
+        stage("Override Variables") {
+            steps {
+                script {
+                    FOO = "IT DOES NOT WORK!" // it can't override env.FOO declared at the pipeline (or stage) level
+                    SOMETHING = "2" // it can override env variable created imperatively
+                }
+
+                echo "FOO = ${FOO}" // prints "FOO = bar"
+                echo "SOMETHING = ${SOMETHING}" // prints "SOMETHING = 2"
+
+                withEnv(["FOO=foobar"]) { // it can override any env variable
+                    echo "FOO = ${FOO}" // prints "FOO = foobar"
+                }
+
+                withEnv(["BUILD_NUMBER=1"]) {
+                    echo "BUILD_NUMBER = ${BUILD_NUMBER}" // prints "BUILD_NUMBER = 1"
+                }
+            }
+        }
+    }
+}
+```
 ### Storing Boolean values in environment variables
 ```
 pipeline {
