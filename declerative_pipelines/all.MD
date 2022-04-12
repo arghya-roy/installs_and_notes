@@ -22,7 +22,7 @@ pipeline {
                         {
                         echo 'Hello from main branch'
                         }
-                    if (env.BRANCH_NAME == 'null') 
+                   else if (env.BRANCH_NAME == 'null') 
                         {
                         echo 'Hello from null branch'
                         }
