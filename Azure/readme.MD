@@ -16,4 +16,4 @@ Premium storage accounts are backed by SSD (Solid-state drives) and offers low l
 
 ### Storage Account types -
 . <br/>
-![image description] (https://github.com/arghya-roy/installs_and_notes/blob/main/Azure/images/Screenshot%20(53).png)
+![image description](https://github.com/arghya-roy/installs_and_notes/blob/main/Azure/images/Screenshot%20(53).png)
